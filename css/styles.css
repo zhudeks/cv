@@ -17,13 +17,12 @@ body {
 /* ----- HEADER ----- */
 
 .header .container {
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 
 .container {
     width: 900px;
     margin: 0 auto;
-    /* background-color: rgb(213, 228, 228); */
     display: flex;
     justify-content: space-between;
     align-items: center;
