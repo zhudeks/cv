@@ -4,6 +4,7 @@ body {
     box-sizing: border-box;
     justify-content:space-between;
     font-family: 'Fredoka', sans-serif;
+    background-color: azure;
 }
 
 *,
@@ -16,7 +17,7 @@ body {
 /* ----- HEADER ----- */
 
 .header .container {
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 .container {
@@ -56,6 +57,20 @@ a img {
     list-style-type: none;
 }
 
+/* ----- ABOUT ME ----- */
+
+.about-me {
+    margin-left: 20px;
+}
+
+.about-me h3{
+    margin-bottom: 10px;
+}
+
+.about .container {
+    padding-bottom: 30px;
+}
+
 /* ----- SKILLS ----- */
 
 .skills-all {
@@ -66,8 +81,20 @@ a img {
     margin-bottom: 10px;
 }
 
+.skills ul {
+    display: inline-block;
+    margin-left: 0px;
+    align-items: center;
+    list-style: none;
+}
+
+.skills ul li {
+    float: left;
+    margin-right: 15px;
+}
+
 .skills .container {
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 /* ----- EXPERIENCE ----- */
@@ -129,6 +156,8 @@ a img {
     display: flex;
     margin-bottom: 30px;
 }
+
+/* ----- FOOTER ----- */
 
 .footer h5 {
     margin-left: auto;
