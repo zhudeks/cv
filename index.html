@@ -1,172 +1,164 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="./img/favicon.png">
-        <title>My CV</title>
-        <link rel="stylesheet" href="./css/styles.css">
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zhudeks Ghazaryan - QA Engineer with 6+ years of experience in manual and automated testing">
+    <meta name="author" content="Zhudeks Ghazaryan">
+    <meta name="keywords" content="QA Engineer, Software Testing, Manual Testing, Automated Testing, API Testing">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Zhudeks Ghazaryan - QA Engineer CV">
+    <meta property="og:description" content="QA Engineer with 6+ years of experience in manual and automated testing">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png">
+    
+    <title>Zhudeks Ghazaryan - QA Engineer CV</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <main>
         <header class="header">
             <div class="container">
                 <div class="header-info">
-                    <h1 class="text-h1">Zhudeks Ghazaryan</h1>
-                    <ul>
-                        <li><a href="tel:37477261190"><img src="./img/phone.png" alt="Phone"></a></li>
-                        <li><a href="mailto:ghazaryan.zhudeks@gmail.com"><img src="./img/email.png" alt="Email"></a></li>
-                        <li><a href="https://www.linkedin.com/in/ghazaryanzhudeks/" target="_blank"><img src="./img/linkedin.png" alt="Linkedin"></a></li>
-                    </ul>
+                    <h1 class="name">Zhudeks Ghazaryan</h1>
+                    <p class="title">QA Engineer</p>
+                    <nav class="contact-nav" aria-label="Contact information">
+                        <ul class="contact-list">
+                            <li>
+                                <a href="tel:37477261190" class="contact-link" aria-label="Phone number">
+                                    <img src="./img/phone.png" alt="" role="presentation">
+                                    <span class="contact-text">+374 77 261 190</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:ghazaryan.zhudeks@gmail.com" class="contact-link" aria-label="Email">
+                                    <img src="./img/email.png" alt="" role="presentation">
+                                    <span class="contact-text">ghazaryan.zhudeks@gmail.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/ghazaryanzhudeks/" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn profile">
+                                    <img src="./img/linkedin.png" alt="" role="presentation">
+                                    <span class="contact-text">LinkedIn Profile</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                
-                <img src="./img/avatar.jpg" alt="My avatar" class="avatar">
-                
+                <div class="avatar-container">
+                    <img src="./img/avatar.jpg" alt="Zhudeks Ghazaryan profile photo" class="avatar">
+                </div>
             </div>
         </header>
 
-        <section class="about">
+        <section class="about" aria-labelledby="about-heading">
             <div class="container">
-                <div class="about-me">
-                    <h3>About me</h3>
-                    <p>Manual QA Engineer with 3+ years of experience.</br>
-                        Scope - Web and Mobile testing.</br>
-                        Tools - Postman, TestRail, Chrome Dev Tools, Elastic search, SSMS, JIRA, Swagger.</p>
+                <div class="section-content">
+                    <h2 id="about-heading" class="section-title">About Me</h2>
+                    <div class="about-content">
+                        <p class="about-text">
+                            QA Engineer with 6+ years of experience in manual and automated testing across 
+                            banking and gambling sectors. Skilled in API testing, regression testing, and test case 
+                            management.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="skills">
+        <section class="skills" aria-labelledby="skills-heading">
             <div class="container">
-                <div class="skills-all">
-                    <h3>Skills</h3>
-                    <ul>
-                        <li>Functional testing</li>
-                        <li>GUI Testing</li>
-                        <li>API Testing</li>
-                        <li>Mobile Testing</li>
-                        <li>Git</li>
-                        <li>Shell Scripting</li>
-                        <li>SQL</li>
-                        <li>RegExp</li>
-                        <li>TCL</li>
-                    </ul>
+                <div class="section-content">
+                    <h2 id="skills-heading" class="section-title">Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3 class="skill-category-title">Testing & Tools</h3>
+                            <ul class="skill-list">
+                                <li>Manual & Automated Testing</li>
+                                <li>API Testing (Postman, Swagger)</li>
+                                <li>Regression & Integration Testing</li>
+                                <li>TestRail, Azure DevOps, Jira</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title">Technical Skills</h3>
+                            <ul class="skill-list">
+                                <li>MySQL, Shell Scripting</li>
+                                <li>Git, RegExp</li>
+                                <li>C# (Learning)</li>
+                                <li>Agile/Scrum, Test Case Management</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="experience">
+        <section class="experience" aria-labelledby="experience-heading">
             <div class="container">
-                <div class="experience-all">
-                    <h3>Experience</h3>
-                    <div class="converse">
-                        <div>
-                            <img src="./img/converse.jpg" alt="Converse Bank logo" class="converse-logo">
-                        </div>
-                        
-                        <div>
-                            <h4 class="position">Mid QA Engineer</h4>
-                            <h5 class="company">Converse Bank</h5>
-                            <h5 class="date">Nov 2021 – Present</h5>
+                <div class="section-content">
+                    <h2 id="experience-heading" class="section-title">Experience</h2>
+                    <div class="experience-item">
+                        <img src="./img/idt.jpg" alt="Intelligent Digital Technologies logo" class="company-logo">
+                        <div class="experience-details">
+                            <h3 class="position">QA Engineer</h3>
+                            <h4 class="company">Intelligent Digital Technologies</h4>
+                            <p class="date">Nov 2022 - Present</p>
                             <ul>
-                                <li>✔️ Manual testing of Mobile banking application.</li>
-                                <li>✔️ Manual testing of Web application (API and GUI).</li>
-                                <li>✔️ Regression testing.</li>
-                                <li>✔️ Cross platform testing.</li>
-                                <li>✔️ Designing and implementing test cases.</li>
+                                <li>Manual and automation testing of banking application backend API</li>
+                                <li>Test case design and implementation (TestRail, Azure DevOps)</li>
+                                <li>Regression testing</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="digitain">
-                        <div>
-                            <img src="./img/digitain.png" alt="Digitain Armenia logo" class="digitain-logo">
-                        </div>
-                        
-                        <div>
-                            <h4 class="position">Junior QA Engineer</h4>
-                            <h5 class="company">Digitain Armenia</h5>
-                            <h5 class="date">Nov 2020 – Oct 2021</h5>
+                    <div class="experience-item">
+                        <img src="./img/converse.jpg" alt="Converse Bank logo" class="company-logo">
+                        <div class="experience-details">
+                            <h3 class="position">QA Engineer</h3>
+                            <h4 class="company">Converse Bank</h4>
+                            <p class="date">Nov 2021 - Oct 2022</p>
                             <ul>
-                                <li>✔️ Manual testing of WEB application in the Gambling industry.</li>
-                                <li>✔️ API testing using Postman and Swagger.</li>
-                                <li>✔️ Regression, Integration and GUI testing.</li>
-                                <li>✔️ Designing and implementing test cases, reviewing tests created by others on the New Platform team.</li>
-                                <li>✔️ Maintaining more than 600 test cases.</li>
+                                <li>Manual testing of mobile and web banking applications</li>
+                                <li>API and GUI testing, cross-platform testing</li>
+                                <li>Test case design and implementation</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="synopsys">
-                        <div>
-                            <img src="./img/synopsys.jpg" alt="Synopsys Armenia logo" class="synopsys-logo">
-                        </div>
-                        
-                        <div>
-                            <h4 class="position">Software Tester Intern</h4>
-                            <h5 class="company">Synopsys Armenia CJSC</h5>
-                            <h5 class="date">Oct 2016 - Jul 2018</h5>
+                    <div class="experience-item">
+                        <img src="./img/digitain.png" alt="Digitain Armenia logo" class="company-logo">
+                        <div class="experience-details">
+                            <h3 class="position">Junior QA Engineer</h3>
+                            <h4 class="company">Digitain Armenia</h4>
+                            <p class="date">Nov 2020 - Oct 2021</p>
                             <ul>
-                                <li>✔️ Designing automated tests with TCL for desktop app.</li>
-                                <li>✔️ Reproducing and tracking customer’s bugs, regression testing.</li>
-                                <li>✔️ Creating test-specs for new features.</li>
-                                <li>✔️ Creating and maintaining test cases for fixed bugs and new features.</li>
+                                <li>Manual testing of gambling industry web applications</li>
+                                <li>API testing using Postman and Swagger</li>
+                                <li>Maintained 600+ test cases and conducted code reviews</li>
                             </ul>
                         </div>
                     </div>
 
-                </div>
-            </div>
-
-        </section>
-
-        <section class="education">
-            <div class="container">
-                <div class="education-all">
-                    <h3>Education</h3>
-                    <div class="synopsys-master">
-                        <div>
-                            <img src="./img/synopsys.jpg" alt="Synopsys Armenia Educational Department logo" class="synopsys-logo">
-                        </div>
-                        
-                        <div>
-                            <h4 class="institution">Synopsys Armenia Educational Department</h4>
-                            <h5 class="department">Master's degree, Electronic Design Automation (EDA)</h5>
-                            <h5 class="date">2017 - 2018, 2020 – 2021</h5>
+                    <div class="experience-item">
+                        <img src="./img/synopsys.jpg" alt="Synopsys Armenia logo" class="company-logo">
+                        <div class="experience-details">
+                            <h3 class="position">Software Tester Intern</h3>
+                            <h4 class="company">Synopsys Armenia CJSC</h4>
+                            <p class="date">Oct 2016 - Jul 2018</p>
                             <ul>
-                                <li>✔️ Master's thesis - Development and research of a system for testing algorithms embedded in the Yield Explorer ® Failure Mechanism Analysis (FMA) and Automated Volume Diagnostic Analysis (AVD) software solutions.</li>
+                                <li>Automated testing with TCL for desktop applications</li>
+                                <li>Bug reproduction, tracking, and test case creation</li>
                             </ul>
-                        </div>
-                    </div>
-
-                    <div class="synopsys-bachelor">
-                        <div>
-                            <img src="./img/synopsys.jpg" alt="Synopsys Armenia Educational Department logo" class="synopsys-logo">
-                        </div>
-                        
-                        <div>
-                            <h4 class="institution">Synopsys Armenia Educational Department</h4>
-                            <h5 class="department">Bachelor's degree, Electronic Design Automation (EDA)</h5>
-                            <h5 class="date">2015 - 2017</h5>
-                            <ul>
-                                <li>✔️ Programming in C++, learning and working with Synopsys tools.</li>
-                                <li>✔️ Diploma work - "Software build system development with TCL C API".</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="npua-bachelor">
-                        <div>
-                            <img src="./img/npua.png" alt="National Polytechnic University of Armenia logo" class="npua-logo">
-                        </div>
-                        
-                        <div>
-                            <h4 class="institution">National Polytechnic University of Armenia</h4>
-                            <h5 class="department">Bachelor's degree, Information Technology</h5>
-                            <h5 class="date">2013 - 2015</h5>
                         </div>
                     </div>
 
@@ -175,10 +167,64 @@
 
         </section>
 
-        <footer class="footer">
+        <section class="education" aria-labelledby="education-heading">
             <div class="container">
-                <h5>All rights reserved. 2022</h5>
+                <div class="section-content">
+                    <h2 id="education-heading" class="section-title">Education</h2>
+                    
+                    <div class="experience-item">
+                        <img src="./img/synopsys.jpg" alt="Synopsys Armenia Educational Department logo" class="company-logo">
+                        <div class="experience-details">
+                            <h3 class="position">Master's degree, Electronic Design Automation (EDA)</h3>
+                            <h4 class="company">Synopsys Armenia Educational Department</h4>
+                            <p class="date">2017 - 2018, 2020 - 2021</p>
+                            <ul>
+                                <li>Master's thesis - Development and research of a system for testing algorithms embedded in the Yield Explorer ® Failure
+Mechanism Analysis (FMA) and Automated Volume Diagnostic Analysis (AVD) software solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <img src="./img/synopsys.jpg" alt="Synopsys Armenia Educational Department logo" class="company-logo">
+                        <div class="experience-details">
+                            <h3 class="position">Bachelor's degree, Electronic Design Automation (EDA)</h3>
+                            <h4 class="company">Synopsys Armenia Educational Department</h4>
+                            <p class="date">2015 - 2017</p>
+                            <ul>
+                                <li>Programming in C++, working with Synopsys tools</li>
+                                <li>Diploma work - "Software build system development with TCL C API"</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <img src="./img/npua.png" alt="National Polytechnic University of Armenia logo" class="company-logo">
+                        <div class="experience-details">
+                            <h3 class="position">Bachelor's degree, Information Technology</h3>
+                            <h4 class="company">National Polytechnic University of Armenia</h4>
+                            <p class="date">2013 - 2015</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </footer>
-    </body>
+        </section>
+
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">&copy; <span id="current-year"></span> Zhudeks Ghazaryan. All rights reserved.</p>
+                <p class="footer-note">Built with ❤️ for showcasing professional experience</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Automatically update copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
 </html>
