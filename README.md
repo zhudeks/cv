@@ -1,4 +1,6 @@
-# CV Website - Deployment Guide
+# CV Website - Static Version
+
+A secure, static CV website hosted on GitHub Pages. **No admin panel** - edit data directly in files.
 
 ## Project Structure
 
@@ -6,31 +8,65 @@
 cv/
 ├── index.html           # Main CV page
 ├── css/
-│   └── style.css        # CV styles
+│   └── style.css        # Styles
 ├── js/
-│   └── script.js        # CV logic + data rendering
+│   ├── data.js          # ⚠️ EDIT THIS FILE to update CV
+│   └── script.js        # Page logic
 ├── images/              # CV images
-├── admin/               # Admin panel
-│   ├── index.html
-│   ├── css/
-│   │   └── admin.css
-│   ├── js/
-│   │   └── admin.js
-│   └── images/
-│       └── favicon.png
 ├── CNAME                # Your custom domain
 └── README.md            # This file
 ```
 
-## GitHub Pages Deployment
+## How to Update Your CV
 
-### Step 1: Create GitHub Repository
+### Edit `js/data.js`
+
+Open `js/data.js` and modify the `CV_DATA` object:
+
+```javascript
+const CV_DATA = {
+    profile: {
+        name: "Your Name",
+        title: "Your Job Title",
+        email: "your@email.com",
+        // ... etc
+    },
+    // ... rest of data
+};
+```
+
+### Sections You Can Edit:
+
+- **Profile**: Name, title, avatar, email, phone, LinkedIn, GitHub
+- **Summary**: Professional summary text
+- **Skills**: Skill categories and items
+- **Experience**: Job positions with descriptions
+- **Education**: Degrees and institutions
+- **Settings**: Primary color theme
+
+### Deploy Changes:
+
+```bash
+# 1. Edit js/data.js
+# 2. Save the file
+# 3. Commit and push
+
+git add js/data.js
+git commit -m "Update CV: [describe changes]"
+git push
+```
+
+Changes will be live on GitHub Pages in 1-2 minutes.
+
+## GitHub Pages Setup
+
+### Step 1: Create Repository
 
 1. Go to https://github.com/new
-2. Create a new repository (e.g., `zhudeks.github.io` or `cv`)
-3. Make it **Public** (required for free GitHub Pages)
+2. Create a **public** repository (required for free GitHub Pages)
+3. Name it (e.g., `cv` or `zhudeks.github.io`)
 
-### Step 2: Push Code to GitHub
+### Step 2: Push Code
 
 ```bash
 cd c:\Users\zhudeks\vscode\cv
@@ -50,12 +86,12 @@ git push -u origin main
    - Folder: `/ (root)`
 3. Click **Save**
 
-### Step 4: Configure Custom Domain (name.am)
+### Step 4: Custom Domain (name.am)
 
-1. In GitHub Pages settings, enter your domain (e.g., `zhudeks.am`)
-2. Click **Save**
-
-3. **At name.am**, configure DNS:
+1. Edit `CNAME` file with your domain (e.g., `zhudeks.am`)
+2. Commit and push
+3. In GitHub Pages settings, enter your domain
+4. **At name.am**, configure DNS:
 
 | Type  | Name | Value                      |
 |-------|------|----------------------------|
@@ -65,45 +101,8 @@ git push -u origin main
 | A     | @    | 185.199.110.153            |
 | A     | @    | 185.199.111.153            |
 
-4. Wait 24-48 hours for DNS propagation
-
-### Step 5: Enforce HTTPS
-
-After DNS propagates:
-1. Go back to GitHub Pages settings
-2. Check **Enforce HTTPS**
-
-## Admin Panel
-
-- Access: `https://yourdomain.am/admin/index.html`
-- Default password: `admin123`
-- **Change the password** after first login!
-
-### File Manager
-
-The admin panel includes a built-in File Manager:
-
-1. Go to **File Manager** section in admin panel
-2. **Upload images** by:
-   - Clicking "Upload Files" button
-   - Drag & drop files into the upload area
-3. **Browse uploaded files** in the grid view
-4. **Search and filter** files by name or category
-5. **Use files** in your CV:
-   - Click "Choose from Files" button next to image path fields
-   - Select an uploaded image
-6. **Preview** images before using
-7. **Delete** unwanted files
-
-**Note:** Files are stored in browser's localStorage (limit ~5-10MB). For large files or production use, consider hosting images separately.
-
-## Update CV Content
-
-1. Open Admin Panel
-2. Login with your password
-3. Edit any section (Profile, Summary, Skills, Experience, Education)
-4. Click **Save Changes**
-5. Refresh CV page to see updates
+5. Wait 24-48 hours for DNS propagation
+6. Enable **Enforce HTTPS** in GitHub Pages settings
 
 ## Local Development
 
@@ -119,8 +118,35 @@ npx serve
 
 Then visit: `http://localhost:8000`
 
-## Important Notes
+## Features
 
-- Data is stored in browser's `localStorage`
-- Clear browser cache = reset data (use Reset to Default in admin)
-- For production, consider adding a backend for data persistence
+- ✅ **Secure**: No admin panel, no database, no authentication vulnerabilities
+- ✅ **Static**: Fast loading, works on free GitHub Pages
+- ✅ **Easy Updates**: Edit one file (`js/data.js`) and push
+- ✅ **Responsive**: Mobile-friendly design
+- ✅ **Dark Mode**: Built-in light/dark theme toggle
+- ✅ **Print Ready**: Optimized for PDF export
+- ✅ **Custom Domain**: Supports your own domain
+
+## Security
+
+This is a **static website** with:
+- ❌ No admin panel
+- ❌ No database
+- ❌ No authentication
+- ❌ No server-side code
+
+**All data is in `js/data.js`** - edit it directly and push to GitHub.
+
+Since the repo is public (required for free GitHub Pages), anyone can see the source code. This is fine for a CV since it's public information anyway.
+
+## Tips
+
+1. **Backup**: Keep a backup of your `data.js` file locally
+2. **Images**: Add images to `images/` folder and reference in `data.js`
+3. **Test Locally**: Always test changes locally before pushing
+4. **Commit Messages**: Use descriptive commit messages for tracking changes
+
+## License
+
+This is a personal CV website. Feel free to use as inspiration for your own.
