@@ -34,7 +34,7 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 15px;
 }
@@ -42,16 +42,15 @@ body {
 /* Header Styles */
 header {
     text-align: left;
-    padding: 40px 20px;
-    border-bottom: 2px solid var(--border-color);
-    margin-bottom: 30px;
+    padding: 25px 15px;
+    margin-bottom: 25px;
 }
 
 .header-controls {
     display: flex;
     justify-content: flex-end;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     flex-wrap: wrap;
 }
 
@@ -60,11 +59,11 @@ header {
 }
 
 .btn {
-    padding: 8px 14px;
+    padding: 7px 12px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -109,7 +108,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .profile-info {
@@ -117,8 +116,8 @@ header {
 }
 
 .profile-avatar {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: var(--shadow);
@@ -126,31 +125,31 @@ header {
 }
 
 .name {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--primary-color);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--text-color);
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .contact-info {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     color: var(--secondary-text);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
 }
 
 .contact-item a {
@@ -183,106 +182,102 @@ header {
 
 /* Section Styles */
 section {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .section-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--primary-color);
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 15px;
 }
 
 /* Summary Section */
 #summary p {
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: 0.95rem;
+    line-height: 1.6;
     color: var(--text-color);
 }
 
-/* Skills Grid */
+/* Skills Section - Compact Tags Layout */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
     gap: 15px;
 }
 
 .skill-card {
     background-color: var(--card-bg);
-    padding: 20px;
+    padding: 12px 15px;
     border-radius: 8px;
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.skill-card:focus-within {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
 }
 
 .skill-card h4 {
     color: var(--primary-color);
-    margin-bottom: 12px;
-    font-size: 1rem;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .skill-list {
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
 .skill-list li {
-    padding: 5px 0;
+    padding: 4px 10px;
+    background-color: rgba(230, 57, 70, 0.1);
     color: var(--text-color);
-    font-size: 0.95rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    font-weight: 500;
 }
 
 .skill-list li::before {
-    content: "•";
-    color: var(--primary-color);
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
+    content: none;
 }
 
 .skill-list li {
-    padding-left: 1em;
+    padding-left: 10px;
 }
 
 /* Experience & Education Cards */
 .card {
     background-color: var(--card-bg);
-    padding: 25px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: var(--shadow);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     display: flex;
-    gap: 20px;
+    gap: 15px;
     align-items: flex-start;
     transition: all 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .card-logo {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
     flex-shrink: 0;
     border-radius: 6px;
     background-color: white;
-    padding: 5px;
+    padding: 3px;
 }
 
 .card-content {
@@ -293,13 +288,13 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .card-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text-color);
     transition: color 0.3s ease;
@@ -312,25 +307,26 @@ section {
 .card-company {
     color: var(--primary-color);
     font-weight: 500;
+    font-size: 0.95rem;
 }
 
 .card-date {
     color: var(--secondary-text);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     white-space: nowrap;
 }
 
 .card ul {
     list-style: none;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .card ul li {
-    padding: 5px 0;
+    padding: 3px 0;
     color: var(--text-color);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     position: relative;
-    padding-left: 20px;
+    padding-left: 16px;
 }
 
 .card ul li::before {
@@ -351,7 +347,6 @@ section {
 .cv-footer {
     text-align: center;
     padding: 30px 20px;
-    border-top: 1px solid var(--border-color);
     margin-top: 40px;
     color: var(--secondary-text);
     font-size: 0.9rem;

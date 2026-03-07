@@ -4,7 +4,7 @@
 const CV_DATA = {
     profile: {
         name: "Zhudeks Ghazaryan",
-        title: "Automation QA Engineer",
+        title: "QA Engineer",
         avatar: "images/avatar.jpg",
         email: "ghazaryan.zhudeks@gmail.com",
         phone: "+374 77 261190",
