@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhudeks Ghazaryan - QA Engineer CV</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-controls">
+                <button class="btn btn-secondary" onclick="printCV()">
+                    <i class="fas fa-print"></i>
+                    Print / Save as PDF
+                </button>
+                <button class="btn btn-secondary" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                    Dark Mode
+                </button>
+            </div>
+
+            <div class="profile-section">
+                <div class="profile-info">
+                    <h1 class="name">Zhudeks Ghazaryan</h1>
+                    <p class="title">QA Engineer</p>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:ghazaryan.zhudeks@gmail.com">ghazaryan.zhudeks@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+37477261190">+374 77 261190</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/ghazaryanzhudeks/" target="_blank">LinkedIn</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/zhudeks" target="_blank">zhudeks</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <img src="images/avatar.jpg" alt="Zhudeks Ghazaryan" class="profile-avatar">
+            </div>
+        </header>
+
+        <section id="summary">
+            <h2 class="section-title">Professional Summary</h2>
+            <p>
+                QA Engineer with 7+ years of experience, specializing in backend API testing and automation within the regulated banking and gambling sectors. Strong foundation in software engineering principles and a proven track record in designing, executing, and maintaining test suites. Actively transitioning skills towards a full-time SDET role, with a focused interest in building robust test automation frameworks in C#/JAVA and gRPC/REST.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Programming & Scripting</h4>
+                    <ul class="skill-list">
+                        <li>C# and Java (Learning/Projects)</li>
+                        <li>Shell Scripting</li>
+                        <li>SQL</li>
+                        <li>Regular Expressions</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h4>Test Automation & Tools</h4>
+                    <ul class="skill-list">
+                        <li>Postman (Automation & Manual)</li>
+                        <li>Swagger/OpenAPI</li>
+                        <li>TestRail</li>
+                        <li>Azure DevOps</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h4>Testing Expertise</h4>
+                    <ul class="skill-list">
+                        <li>API Testing (REST)</li>
+                        <li>Functional, Regression, Integration</li>
+                        <li>Cross-platform Testing</li>
+                        <li>GUI Testing</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h4>Methodologies</h4>
+                    <ul class="skill-list">
+                        <li>Agile/Scrum</li>
+                        <li>CI/CD Concepts</li>
+                        <li>Git Version Control</li>
+                        <li>Bug Tracking & Triage</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <div class="card">
+                <img src="images/idt.jpg" alt="Intelligent Digital Technologies" class="card-logo">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div>
+                            <span class="card-title">QA Engineer</span>
+                            <span class="card-company"> | Intelligent Digital Technologies</span>
+                        </div>
+                        <span class="card-date">Nov 2022 – Present</span>
+                    </div>
+                    <ul>
+                        <li>Engineered and executed automated API test suites using Postman.</li>
+                        <li>Performed in-depth manual API testing using Swagger and Postman.</li>
+                        <li>Designed test cases in TestRail and Azure DevOps.</li>
+                        <li>Led end-to-end regression testing for production releases.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/converse.jpg" alt="Converse Bank" class="card-logo">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div>
+                            <span class="card-title">QA Engineer</span>
+                            <span class="card-company"> | Converse Bank</span>
+                        </div>
+                        <span class="card-date">Nov 2021 – Oct 2022</span>
+                    </div>
+                    <ul>
+                        <li>Executed manual testing for Mobile Banking (iOS/Android) and Web.</li>
+                        <li>Performed rigorous regression and cross-platform testing.</li>
+                        <li>Developed and maintained test case libraries.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/digitain.png" alt="Digitain Armenia" class="card-logo">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div>
+                            <span class="card-title">Junior QA Engineer</span>
+                            <span class="card-company"> | Digitain Armenia</span>
+                        </div>
+                        <span class="card-date">Nov 2020 – Oct 2021</span>
+                    </div>
+                    <ul>
+                        <li>Conducted manual WEB application testing (Functional, Regression, Integration).</li>
+                        <li>Utilized Postman and Swagger for API testing.</li>
+                        <li>Maintained a repository of 600+ test cases.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/synopsys.jpg" alt="Synopsys Armenia" class="card-logo">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div>
+                            <span class="card-title">Software Tester Intern</span>
+                            <span class="card-company"> | Synopsys Armenia CJSC</span>
+                        </div>
+                        <span class="card-date">Oct 2016 – Jul 2018</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+
+            <div class="card">
+                <img src="images/synopsys.jpg" alt="Synopsys Armenia" class="card-logo">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div>
+                            <span class="card-title">Master's degree, Electronic Design Automation (EDA)</span>
+                            <span class="card-company"> | Synopsys Armenia</span>
+                        </div>
+                        <span class="card-date">2017-2018, 2020–2021</span>
+                    </div>
+                    <p class="education-degree">Thesis: Development and research of a system for testing algorithms embedded in Yield Explorer®.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/synopsys.jpg" alt="Synopsys Armenia" class="card-logo">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div>
+                            <span class="card-title">Bachelor's degree, Electronic Design Automation (EDA)</span>
+                            <span class="card-company"> | Synopsys Armenia</span>
+                        </div>
+                        <span class="card-date">2015-2017</span>
+                    </div>
+                    <p class="education-degree">Diploma work: "Software build system development with TCL C API".</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/npua.png" alt="National Polytechnic University of Armenia" class="card-logo">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div>
+                            <span class="card-title">Bachelor's degree, Information Technology</span>
+                            <span class="card-company"> | National Polytechnic University of Armenia</span>
+                        </div>
+                        <span class="card-date">2013–2015</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
