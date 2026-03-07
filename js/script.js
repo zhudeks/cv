@@ -110,6 +110,15 @@ function getCVData() {
     return defaultData;
 }
 
+// Helper to handle image source (path or base64)
+function getImageSrc(path) {
+    if (!path) return '';
+    // If it's a data URL, return as is
+    if (path.startsWith('data:')) return path;
+    // Otherwise it's a file path
+    return path;
+}
+
 // Render CV content
 function renderCV() {
     const data = getCVData();
@@ -122,7 +131,7 @@ function renderCV() {
     // Profile
     document.getElementById('displayName').textContent = data.profile.name;
     document.getElementById('displayTitle').textContent = data.profile.title;
-    document.getElementById('displayAvatar').src = data.profile.avatar;
+    document.getElementById('displayAvatar').src = getImageSrc(data.profile.avatar);
     document.getElementById('displayAvatar').alt = data.profile.name;
 
     // Contact info
@@ -175,7 +184,7 @@ function renderCV() {
     const experienceContainer = document.getElementById('displayExperience');
     experienceContainer.innerHTML = data.experience.map(exp => `
         <div class="card">
-            <img src="${exp.logo}" alt="${exp.company}" class="card-logo" onerror="this.style.display='none'">
+            <img src="${getImageSrc(exp.logo)}" alt="${exp.company}" class="card-logo" onerror="this.style.display='none'">
             <div class="card-content">
                 <div class="card-header">
                     <div>
@@ -197,7 +206,7 @@ function renderCV() {
     const educationContainer = document.getElementById('displayEducation');
     educationContainer.innerHTML = data.education.map(edu => `
         <div class="card">
-            <img src="${edu.logo}" alt="${edu.company}" class="card-logo" onerror="this.style.display='none'">
+            <img src="${getImageSrc(edu.logo)}" alt="${edu.company}" class="card-logo" onerror="this.style.display='none'">
             <div class="card-content">
                 <div class="card-header">
                     <div>
