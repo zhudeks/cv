@@ -347,6 +347,16 @@ section {
     margin-top: 10px;
 }
 
+/* Footer */
+.cv-footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
