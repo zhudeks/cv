@@ -79,6 +79,24 @@ After DNS propagates:
 - Default password: `admin123`
 - **Change the password** after first login!
 
+### File Manager
+
+The admin panel includes a built-in File Manager:
+
+1. Go to **File Manager** section in admin panel
+2. **Upload images** by:
+   - Clicking "Upload Files" button
+   - Drag & drop files into the upload area
+3. **Browse uploaded files** in the grid view
+4. **Search and filter** files by name or category
+5. **Use files** in your CV:
+   - Click "Choose from Files" button next to image path fields
+   - Select an uploaded image
+6. **Preview** images before using
+7. **Delete** unwanted files
+
+**Note:** Files are stored in browser's localStorage (limit ~5-10MB). For large files or production use, consider hosting images separately.
+
 ## Update CV Content
 
 1. Open Admin Panel

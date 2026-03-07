@@ -551,3 +551,295 @@ function showToast(message, type = 'success') {
 
 // Initialize on load
 init();
+
+// ==========================================
+// FILE MANAGER FUNCTIONALITY
+// ==========================================
+
+// File storage key
+const FILES_STORAGE_KEY = 'cvFiles';
+
+// Get files from storage
+function getFiles() {
+    const stored = localStorage.getItem(FILES_STORAGE_KEY);
+    return stored ? JSON.parse(stored) : [];
+}
+
+// Save files to storage
+function saveFiles(files) {
+    try {
+        localStorage.setItem(FILES_STORAGE_KEY, JSON.stringify(files));
+        return true;
+    } catch (e) {
+        showToast('Storage full! File too large.', 'error');
+        return false;
+    }
+}
+
+// Current selected file
+let selectedFile = null;
+let fileSelectTarget = null;
+
+// Initialize file manager when section is shown
+function initFileManager() {
+    renderFilesGrid();
+    setupDragDrop();
+}
+
+// Setup drag and drop
+function setupDragDrop() {
+    const uploadArea = document.querySelector('.file-upload-area');
+    if (!uploadArea) return;
+
+    uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.classList.add('dragover');
+    });
+
+    uploadArea.addEventListener('dragleave', () => {
+        uploadArea.classList.remove('dragover');
+    });
+
+    uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+        handleFiles(e.dataTransfer.files);
+    });
+}
+
+// Handle file input selection
+window.handleFileSelect = function(event) {
+    handleFiles(event.target.files);
+    event.target.value = '';
+};
+
+// Handle files (upload)
+function handleFiles(files) {
+    const storedFiles = getFiles();
+    let uploaded = 0;
+
+    Array.from(files).forEach(file => {
+        if (!file.type.startsWith('image/')) {
+            showToast('Only image files are supported', 'error');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const newFile = {
+                id: Date.now() + Math.random(),
+                name: file.name,
+                size: file.size,
+                type: file.type,
+                date: new Date().toISOString(),
+                data: e.target.result,
+                category: categorizeFile(file.name)
+            };
+
+            storedFiles.push(newFile);
+            if (saveFiles(storedFiles)) {
+                uploaded++;
+                if (uploaded === files.length) {
+                    renderFilesGrid();
+                    showToast(`${uploaded} file(s) uploaded!`, 'success');
+                }
+            }
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+// Categorize file based on name
+function categorizeFile(filename) {
+    const lower = filename.toLowerCase();
+    if (lower.includes('avatar') || lower.includes('profile') || lower.includes('photo')) return 'avatars';
+    if (lower.includes('logo') || lower.includes('company') || lower.includes('brand')) return 'logos';
+    return 'images';
+}
+
+// Format file size
+function formatFileSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+}
+
+// Format date
+function formatDate(isoString) {
+    const date = new Date(isoString);
+    return date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+// Render files grid
+function renderFilesGrid() {
+    const container = document.getElementById('filesGrid');
+    if (!container) return;
+
+    const files = getFiles();
+    
+    if (files.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <i class="fas fa-folder-open"></i>
+                <p>No files uploaded yet</p>
+                <p class="hint">Upload images to use in your CV</p>
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = files.map(file => `
+        <div class="file-item" onclick="selectFile(${file.id})" data-id="${file.id}" data-category="${file.category}" data-name="${file.name.toLowerCase()}">
+            <img src="${file.data}" alt="${file.name}">
+            <div class="file-item-info">
+                <div class="file-item-name" title="${file.name}">${file.name}</div>
+                <div class="file-item-size">${formatFileSize(file.size)}</div>
+            </div>
+            <div class="file-item-actions">
+                <button class="btn btn-icon btn-sm" onclick="event.stopPropagation(); previewFile(${file.id})" title="Preview">
+                    <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn btn-icon btn-sm delete" onclick="event.stopPropagation(); deleteFile(${file.id})" title="Delete">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Select file
+window.selectFile = function(fileId) {
+    // Remove previous selection
+    document.querySelectorAll('.file-item').forEach(item => item.classList.remove('selected'));
+    
+    // Select new
+    const item = document.querySelector(`.file-item[data-id="${fileId}"]`);
+    if (item) {
+        item.classList.add('selected');
+        selectedFile = getFiles().find(f => f.id === fileId);
+    }
+};
+
+// Preview file
+window.previewFile = function(fileId) {
+    const file = getFiles().find(f => f.id === fileId);
+    if (!file) return;
+
+    const preview = document.getElementById('filePreview');
+    const img = document.getElementById('previewImage');
+    
+    img.src = file.data;
+    document.getElementById('previewName').textContent = file.name;
+    document.getElementById('previewSize').textContent = formatFileSize(file.size);
+    document.getElementById('previewDate').textContent = formatDate(file.date);
+    
+    preview.classList.remove('hidden');
+};
+
+// Close preview
+window.closePreview = function() {
+    document.getElementById('filePreview').classList.add('hidden');
+};
+
+// Use selected file
+window.useSelectedFile = function() {
+    if (!selectedFile) {
+        showToast('Please select a file first', 'error');
+        return;
+    }
+    
+    if (fileSelectTarget) {
+        document.getElementById(fileSelectTarget).value = `data:${selectedFile.type};base64,${selectedFile.data.split(',')[1]}`;
+    }
+    
+    closeFileSelect();
+    showToast('File selected!', 'success');
+};
+
+// Delete file
+window.deleteFile = function(fileId) {
+    if (!confirm('Are you sure you want to delete this file?')) return;
+    
+    const files = getFiles().filter(f => f.id !== fileId);
+    saveFiles(files);
+    renderFilesGrid();
+    
+    // Also clear preview if deleted file was shown
+    const preview = document.getElementById('filePreview');
+    if (!preview.classList.contains('hidden')) {
+        closePreview();
+    }
+    
+    showToast('File deleted!', 'success');
+};
+
+// Filter files
+window.filterFiles = function() {
+    const search = document.getElementById('fileSearch').value.toLowerCase();
+    const category = document.getElementById('fileFilter').value;
+    
+    document.querySelectorAll('.file-item').forEach(item => {
+        const matchesSearch = item.dataset.name.includes(search);
+        const matchesCategory = category === 'all' || item.dataset.category === category;
+        
+        item.style.display = matchesSearch && matchesCategory ? 'block' : 'none';
+    });
+};
+
+// Open file select modal
+window.selectFromFiles = function(targetInput) {
+    fileSelectTarget = targetInput;
+    const modal = document.getElementById('fileSelectModal');
+    const grid = document.getElementById('fileSelectGrid');
+    const files = getFiles();
+    
+    if (files.length === 0) {
+        grid.innerHTML = `
+            <div class="empty-state">
+                <i class="fas fa-folder-open"></i>
+                <p>No files uploaded yet</p>
+            </div>
+        `;
+    } else {
+        grid.innerHTML = files.map(file => `
+            <div class="file-item" onclick="selectFileFromModal(${file.id})" data-id="${file.id}">
+                <img src="${file.data}" alt="${file.name}">
+                <div class="file-item-info">
+                    <div class="file-item-name" title="${file.name}">${file.name}</div>
+                    <div class="file-item-size">${formatFileSize(file.size)}</div>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    modal.classList.remove('hidden');
+};
+
+// Select file from modal
+window.selectFileFromModal = function(fileId) {
+    const file = getFiles().find(f => f.id === fileId);
+    if (!file) return;
+    
+    if (fileSelectTarget) {
+        document.getElementById(fileSelectTarget).value = `data:${file.type};base64,${file.data.split(',')[1]}`;
+    }
+    
+    closeFileSelect();
+    showToast('File selected!', 'success');
+};
+
+// Close file select modal
+window.closeFileSelect = function() {
+    document.getElementById('fileSelectModal').classList.add('hidden');
+    fileSelectTarget = null;
+};
+
+// Override showSection to init file manager when needed
+const originalShowSection = window.showSection;
+window.showSection = function(section) {
+    if (originalShowSection) originalShowSection(section);
+    
+    if (section === 'files') {
+        setTimeout(initFileManager, 100);
+    }
+};
